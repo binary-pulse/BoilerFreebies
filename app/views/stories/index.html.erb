@@ -1,6 +1,9 @@
 <% @stories.each do |story| %>
-	<h2><%= story.title %></h2>
-	<%= link_to "Show Story", story_path(story), class: "btn btn-default" %>
+	
+	<div class='col-md-4'>
+		<div class="message">
+			<h2 class="message-title"><%= story.title %></h2>
+			<%= link_to "Show Story", story_path(story), class: "btn-custom" %>
+		</div>
+	</div>
 <% end %>
-
-<%= link_to "New Story", new_story_path %>

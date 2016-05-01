@@ -1,18 +1,24 @@
-<h2><%= @story.title %></h2>
-<p>Posted by <%= @story.user.email %> <%= time_ago_in_words(@story.created_at) %> ago</p>
-<p><%= @story.description %></p>
+<div class="col-md-8 col-md-offset-2">
+	<div class='message-show'> 
 
-<h3>Comments:</h3>
-<%= render @story.comments %>
+		<h2><%= @story.title %></h2>
+		<p class='message-posted-by'>Posted by <%= @story.user.email %> <%= time_ago_in_words(@story.created_at) %> ago</p>
+		<p class='message-desc'><%= @story.description %></p>
 
-<h3>Reply to Story:</h3>
-<%= render 'comments/form' %>
+		<h3>Comments:</h3>
+		<%= render @story.comments %>
 
-<%= link_to "Back", root_path %>
-<% if user_signed_in? %>
-	<% if @story.user_id == current_user.id %>
+		<h3 class='reply-to-msg'>Reply to Story:</h3>
+		<%= render 'comments/form' %>
+		<div class='link btn-group'>
+			<%= link_to "Back", root_path, class: "btn btn-default" %>
+			<% if user_signed_in? %>
+				<% if @story.user_id == current_user.id %>
 
-		<%= link_to "Edit", edit_story_path(@story) %>
-		<%= link_to "Delete", story_path(@story), method: :delete, data: {confirm: "Are you sure?"} %>
-	<% end %>
-<% end %>
+					<%= link_to "Edit", edit_story_path(@story), class: "btn btn-default" %>
+					<%= link_to "Delete", story_path(@story), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-default" %>
+				<% end %>
+			<% end %>
+		</div>
+	</div>
+</div>

@@ -1,6 +1,6 @@
 class StoriesController < ApplicationController
 	before_action :find_story, only: [:show, :edit, :update, :destroy]
-	before_action :authenticate_user!, except: [:index, :show]
+	# before_action :authenticate_user!, except: [:index, :show]
 
 	def index
 		@stories = Story.all.order("created_at DESC")
