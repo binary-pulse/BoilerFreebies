@@ -1,6 +1,12 @@
 <h2><%= @story.title %></h2>
 <p><%= @story.description %></p>
 
+<h3>Comments:</h3>
+<%= render @story.comments %>
+
+<h3>Reply to Story:</h3>
+<%= render 'comments/form' %>
+
 <%= link_to "Back", root_path %>
 <%= link_to "Edit", edit_story_path(@story) %>
 <%= link_to "Delete", story_path(@story), method: :delete, data: {confirm: "Are you sure?"} %>
