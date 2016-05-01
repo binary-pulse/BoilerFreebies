@@ -1,1 +1,6 @@
-<h1>this is the index view</h1>
+<% @stories.each do |story| %>
+	<h2><%= story.title %></h2>
+	<%= link_to "Show Story", story_path(story), class: "btn btn-default" %>
+<% end %>
+
+<%= link_to "New Story", new_story_path %>

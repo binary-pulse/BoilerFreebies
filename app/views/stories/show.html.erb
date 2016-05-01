@@ -1,0 +1,6 @@
+<h2><%= @story.title %></h2>
+<p><%= @story.description %></p>
+
+<%= link_to "Back", root_path %>
+<%= link_to "Edit", edit_story_path(@story) %>
+<%= link_to "Delete", story_path(@story), method: :delete, data: {confirm: "Are you sure?"} %>
